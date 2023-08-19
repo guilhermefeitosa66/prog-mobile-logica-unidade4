@@ -3,7 +3,7 @@
   // exiba-a na tela no formato textual por extenso. Exemplo: Data: 01/01/2000,
   // Imprimir: 1 de janeiro de 2000.
 
-  const dataPorExtenso = (dia, mes, ano) => {
+  function dataPorExtenso(dia, mes, ano) {
     const bisexto = ((ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0))
     const MESES = {
       1: { name: 'Janeiro', max: 31 },
