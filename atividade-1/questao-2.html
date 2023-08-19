@@ -1,0 +1,37 @@
+<script>
+  // Faça uma função que receba a data atual (dia, mês e ano em inteiro) e 
+  // exiba-a na tela no formato textual por extenso. Exemplo: Data: 01/01/2000,
+  // Imprimir: 1 de janeiro de 2000.
+
+  const dataPorExtenso = (dia, mes, ano) => {
+    const bisexto = ((ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0))
+    const MESES = {
+      1: { name: 'Janeiro', max: 31 },
+      2: { name: 'Fevereiro', max: bisexto ? 29 : 28 },
+      3: { name: 'Março', max: 31 },
+      4: { name: 'Abril', max: 30 },
+      5: { name: 'Maio', max: 31 },
+      6: { name: 'Junho', max: 30 },
+      7: { name: 'Julho', max: 31 },
+      8: { name: 'Agosto', max: 31 },
+      9: { name: 'Setembro', max: 30 },
+      10: { name: 'Outubro', max: 31 },
+      11: { name: 'Novembro', max: 30 },
+      12: { name: 'Dezembro', max: 31 },
+    }
+
+    if (!MESES[mes] || dia < 1 || dia > MESES[mes].max || ano < 0) {
+      return 'Data inválida'
+    }
+
+    return `${dia} de ${MESES[mes].name} de ${ano}`
+  }
+
+  console.log(dataPorExtenso(1, 7, 1990))
+  console.log(dataPorExtenso(1, 1, 2000))
+  console.log(dataPorExtenso(28, 2, 2023))
+  console.log(dataPorExtenso(29, 2, 2023))
+  console.log(dataPorExtenso(30, 2, 2000))
+  console.log(dataPorExtenso(1, 0, 2000))
+  console.log(dataPorExtenso(1, 20, 2000))
+</script>
