@@ -1,0 +1,41 @@
+<script>
+  // Crie um programa que receba três valores (obrigatoriamente maiores que zero),
+  // representando as medidas dos três lados de um triangulo. Elabore funções para:
+  // a. Determinar se eles lados formam um triangulo, sabendo que:
+  //    i. O comprimento de cada lado de um triangulo é menor do que a
+  //       soma dos outros dois lados.
+  // b. Determinar e mostrar o tipo de triangulo, caso as medidas formem um
+  //    triangulo. Sendo que:
+  //    i. Chama-se equilátero o triangulo que tem três lados iguais.
+  //    ii. Denominam-se isósceles o triangulo que tem o comprimento de dois lados iguais.
+  //    iii. Recebe o nome de escaleno o triangulo que tem os três lados diferentes.
+
+  function formaTriangulo(a, b, c) {
+    if (a <= 0 || b <= 0 || c <= 0) {
+      return false;
+    } else if (a + b > c && a + c > b && b + c > a) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function tipoDeTriangulo(a, b, c) {
+    if (!formaTriangulo(a, b, c)) {
+      return 'Não forma um triângulo';
+    } else if (a === b && b === c) {
+      return 'Triângulo equilátero';
+    } else if (a === b || a === c || b === c) {
+      return 'Triângulo isósceles';
+    } else {
+      return 'Triângulo escaleno';
+    }
+  }
+
+  console.log(tipoDeTriangulo(0, 1, 1));
+  console.log(tipoDeTriangulo(1, 0, 1));
+  console.log(tipoDeTriangulo(1, 1, 0));
+  console.log(tipoDeTriangulo(3, 3, 3));
+  console.log(tipoDeTriangulo(3, 3, 4));
+  console.log(tipoDeTriangulo(3, 4, 5));
+</script>
